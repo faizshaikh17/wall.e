@@ -52,11 +52,11 @@ function makeGalleryMarkdown(images) {
   if (!images.length)
     return "\n_Empty — add images to `wallpapers/` to populate the gallery._\n";
 
-  let md = '\n<p align="center">\n';
-  images.forEach((img, idx) => {
+  let md = '\n<p align="center" style="line-height:0;">\n';
+  images.forEach((img) => {
     const imgPath = `./wallpapers/${encodeURI(img)}`;
-    md += `  <img src="${imgPath}" width="1920" height="1020" style="margin:6px;border-radius:8px;object-fit:cover;" />\n`;
-    if ((idx + 1) % IMAGES_PER_ROW === 0) md += "  <br/>\n\n";
+    // Added vertical spacing only (top and bottom)
+    md += `  <img src="${imgPath}" width="1920" height="1020" style="margin:16px 0;border-radius:8px;object-fit:cover;display:block;" />\n\n`;
   });
   md += "</p>\n";
   return md;
