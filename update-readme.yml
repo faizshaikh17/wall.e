@@ -1,0 +1,41 @@
+name: Update README Gallery
+
+on:
+  push:
+    paths:
+      - "wallpapers/**"
+      - "generate-readme.js"
+      - "README-template.md"
+      - "README.md"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Run README generator
+        run: node generate-readme.js
+
+      - name: Commit README (if changed)
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add README.md || true
+          if git diff --staged --quiet; then
+            echo "No README changes to commit"
+          else
+            git commit -m "chore: update README gallery" || echo "commit failed"
+            git push
+          fi
