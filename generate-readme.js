@@ -18,8 +18,7 @@ const WALLPAPERS_DIR = path.join(__dirname, "wallpapers");
 const README_PATH = path.join(__dirname, "README.md");
 const BACKUP_PATH = path.join(__dirname, "README.md.bak");
 
-const IMG_WIDTH = 360; // preview width in px
-const IMAGES_PER_ROW = 3;
+const IMAGES_PER_ROW = 1;
 const ALLOWED_EXT = [".png", ".jpg", ".jpeg", ".webp", ".gif"];
 
 function readTemplate() {
@@ -56,7 +55,7 @@ function makeGalleryMarkdown(images) {
   let md = '\n<p align="center">\n';
   images.forEach((img, idx) => {
     const imgPath = `./wallpapers/${encodeURI(img)}`;
-    md += `  <img src="${imgPath}" width="${IMG_WIDTH}" style="margin:6px;border-radius:8px;object-fit:cover;" />\n`;
+    md += `  <img src="${imgPath}" width="1920" height="1020" style="margin:6px;border-radius:8px;object-fit:cover;" />\n`;
     if ((idx + 1) % IMAGES_PER_ROW === 0) md += "  <br/>\n";
   });
   md += "</p>\n";
