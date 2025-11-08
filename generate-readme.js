@@ -56,7 +56,7 @@ function makeGalleryMarkdown(images) {
   images.forEach((img, idx) => {
     const imgPath = `./wallpapers/${encodeURI(img)}`;
     md += `  <img src="${imgPath}" width="1920" height="1020" style="margin:6px;border-radius:8px;object-fit:cover;" />\n`;
-    if ((idx + 1) % IMAGES_PER_ROW === 0) md += "  <br/>\n";
+    if ((idx + 1) % IMAGES_PER_ROW === 0) md += "  <br/>\n\n";
   });
   md += "</p>\n";
   return md;
