@@ -21,6 +21,8 @@
 
   <img src="./wallpapers/op.jpg" width="1920" height="1020" style="margin:16px 0;border-radius:8px;object-fit:cover;display:block;" />
 
+  <img src="./wallpapers/vengeance.png" width="1920" height="1020" style="margin:16px 0;border-radius:8px;object-fit:cover;display:block;" />
+
   <img src="./wallpapers/yuji.jpg" width="1920" height="1020" style="margin:16px 0;border-radius:8px;object-fit:cover;display:block;" />
 
 </p>
